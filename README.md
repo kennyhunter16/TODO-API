@@ -3,7 +3,7 @@ This is a simple To-do application written in the PHP Slim Framework
 
 ## Requirements for Install
 - Apache2
-- PHP 8.1
+- PHP 8.1  (ext. XML)
 - MySQL Database
 - Composer
 
