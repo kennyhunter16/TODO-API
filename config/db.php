@@ -1,10 +1,17 @@
 <?php
 
 class DB {
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '';
-    private $dbname = 'todo';
+    private $host;
+    private $user;
+    private $pass;
+    private $dbname;
+
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'];
+        $this->user = $_ENV['DB_USER'];
+        $this->pass = $_ENV['DB_PASS'];
+        $this->dbname = $_ENV['DB_NAME'];
+    }
 
     public function connect() {
         $conn_str = "mysql:host=$this->host;dbname=$this->dbname";

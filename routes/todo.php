@@ -6,12 +6,19 @@ use Slim\Factory\AppFactory;
 $app = AppFactory::create();
 
 
+
 $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
-    "ignore" => ["/todos","/todo/{id}"],
+    "ignore" => ["/todos"],
+    'path' => ['/todo'],
     "users" => [
-        "root" => "t00r",
-        "somebody" => "passw0rd"
-    ]
+        $_ENV['API_USER'] => $_ENV['API_PASS']
+    ],
+    'error' => function ($response, $arguments) {
+        $data = [];
+        $data['message'] = $arguments['message'];
+        $response->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+        return $response->withStatus(403)->withHeader('Content-Type', 'application/json');
+    }
 ]));
 
 
