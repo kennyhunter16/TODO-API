@@ -21,7 +21,7 @@ This is a simple To-do application written in the PHP Slim Framework
 | DB_HOST      | The host URL of the MySQL database, most likely 'localhost'       |
 | DB_USER   | The user account that has read/write access to the 'todo' table       |
 | DB_PASS   | The password to the database user provided    |
-| DB_NAME  | The name of the table, defaulted as 'todo' if imported with .sql file   |
+| DB_NAME  | The name of the database   |
 | API_USER  | The username used to connect to the API using Basic Auth  |
 | API_PASS  | The password used to connect to the API using Basic Auth  |
 
