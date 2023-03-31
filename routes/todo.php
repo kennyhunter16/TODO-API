@@ -5,11 +5,13 @@ use Slim\Factory\AppFactory;
 
 $app = AppFactory::create();
 
-
+$app->get('/', function (Request $request, Response $response) {
+    $response->getBody()->write("Welcome to the ToDo API. Please use provided endpoints in docs");
+    return $response;
+});
 
 $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
-    "ignore" => ["/todos"],
-    'path' => ['/todo'],
+    'path' => ['/todo', '/todos'],
     "users" => [
         $_ENV['API_USER'] => $_ENV['API_PASS']
     ],
