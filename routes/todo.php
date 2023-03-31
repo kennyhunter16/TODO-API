@@ -12,6 +12,7 @@ $app->get('/', function (Request $request, Response $response) {
 
 $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
     'path' => ['/todo', '/todos'],
+    'secure' => false,
     "users" => [
         $_ENV['API_USER'] => $_ENV['API_PASS']
     ],
